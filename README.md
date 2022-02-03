@@ -1,2 +1,2 @@
-# Learning-Objective-C
+# Learning Objective-C
 Repository to learn study Objective-C
