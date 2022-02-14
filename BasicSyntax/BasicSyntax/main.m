@@ -38,22 +38,58 @@ int main(int argc, const char * argv[]) {
 //            mutableCopy
 //        ];
         
-        NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithDictionary:@{
-                @1: @"Hello",
-                @2: @"World",
-                @3: @"My friends"
-            }
-        ];
+//        NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] initWithDictionary:@{
+//                @1: @"Hello",
+//                @2: @"World",
+//                @3: @"My friends"
+//            }
+//        ];
+//
+//        dictionary[@1] = @"1";
+//
+//        for (NSNumber *key in dictionary) {
+//            NSLog(@"%@", [dictionary objectForKey:key]);
+//        }
+//
+//        [dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+//            NSLog(@"%@", dictionary[key]);
+//        }];
         
-        dictionary[@1] = @"1";
+        NSSet *odd = [NSSet setWithObjects:@1, @3, @5, nil];
+        NSSet *even = [NSSet setWithObjects:@2, @4, @6, nil];
+        NSSet *combined = [odd setByAddingObjectsFromSet:even];
         
-        for (NSNumber *key in dictionary) {
-            NSLog(@"%@", [dictionary objectForKey:key]);
+        for (NSNumber *number in [combined allObjects]) {
+            NSLog(@"%@", number);
         }
         
-        [dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            NSLog(@"%@", dictionary[key]);
-        }];
+        NSMutableSet *mutable = [combined mutableCopy];
+        [mutable addObject:@10];
+        [mutable removeAllObjects];
+        
+        NSLog(@"Elements in odd: %lu",[odd count]);
+        
+        
+        if ([odd containsObject:@3]) {
+            NSLog(@"An odd number found");
+        }
+        
+        if ([odd intersectsSet:even]) {
+            NSLog(@"Set interects!");
+        } else {
+            NSLog(@"No values intersected");
+        }
+        
+        // NSCountedSet
+        NSCountedSet *countedSet = [
+            NSCountedSet
+            setWithObjects:@1, @3, @2, @8, @3, @6, @8, @8, @5, @1, @6, @3, nil
+        ];
+        
+        for (NSString *value in [countedSet allObjects]) {
+            NSLog(@"%@ appears %ld times", value, [countedSet countForObject:value]);
+        }
+        
         
     }
     return 0;
