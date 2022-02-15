@@ -55,40 +55,58 @@ int main(int argc, const char * argv[]) {
 //            NSLog(@"%@", dictionary[key]);
 //        }];
         
-        NSSet *odd = [NSSet setWithObjects:@1, @3, @5, nil];
-        NSSet *even = [NSSet setWithObjects:@2, @4, @6, nil];
-        NSSet *combined = [odd setByAddingObjectsFromSet:even];
+//        NSSet *odd = [NSSet setWithObjects:@1, @3, @5, nil];
+//        NSSet *even = [NSSet setWithObjects:@2, @4, @6, nil];
+//        NSSet *combined = [odd setByAddingObjectsFromSet:even];
+//
+//        for (NSNumber *number in [combined allObjects]) {
+//            NSLog(@"%@", number);
+//        }
+//
+//        NSMutableSet *mutable = [combined mutableCopy];
+//        [mutable addObject:@10];
+//        [mutable removeAllObjects];
+//
+//        NSLog(@"Elements in odd: %lu",[odd count]);
+//
+//
+//        if ([odd containsObject:@3]) {
+//            NSLog(@"An odd number found");
+//        }
+//
+//        if ([odd intersectsSet:even]) {
+//            NSLog(@"Set interects!");
+//        } else {
+//            NSLog(@"No values intersected");
+//        }
+//
+//        // NSCountedSet
+//        NSCountedSet *countedSet = [
+//            NSCountedSet
+//            setWithObjects:@1, @3, @2, @8, @3, @6, @8, @8, @5, @1, @6, @3, nil
+//        ];
+//
+//        for (NSString *value in [countedSet allObjects]) {
+//            NSLog(@"%@ appears %ld times", value, [countedSet countForObject:value]);
+//        }
         
-        for (NSNumber *number in [combined allObjects]) {
-            NSLog(@"%@", number);
-        }
         
-        NSMutableSet *mutable = [combined mutableCopy];
-        [mutable addObject:@10];
-        [mutable removeAllObjects];
+        // This code will crash:
+//        NSArray<NSNumber *> * numbers = @[@42, @556, @3.14];
+//
+//        for (NSString *number in numbers) {
+//            NSLog(@"%@ is %ld letters.", number, [number length]);
+//        }
+//
+//        NSMutableArray<NSString *> *names = [NSMutableArray arrayWithCapacity:4];
+//        [names addObject:@"Pitt"];
+//        [names addObject:@42];
         
-        NSLog(@"Elements in odd: %lu",[odd count]);
+//        NSArray *values = @[[NSValue valueWithRect:CGRectMake(0, 0, 0, 0)]];
         
-        
-        if ([odd containsObject:@3]) {
-            NSLog(@"An odd number found");
-        }
-        
-        if ([odd intersectsSet:even]) {
-            NSLog(@"Set interects!");
-        } else {
-            NSLog(@"No values intersected");
-        }
-        
-        // NSCountedSet
-        NSCountedSet *countedSet = [
-            NSCountedSet
-            setWithObjects:@1, @3, @2, @8, @3, @6, @8, @8, @5, @1, @6, @3, nil
-        ];
-        
-        for (NSString *value in [countedSet allObjects]) {
-            NSLog(@"%@ appears %ld times", value, [countedSet countForObject:value]);
-        }
+        NSArray *foo = [NSArray new];
+        id bar = foo;
+        NSArray *baz = bar;
         
         
     }
