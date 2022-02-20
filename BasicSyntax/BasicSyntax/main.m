@@ -104,29 +104,37 @@ int main(int argc, const char * argv[]) {
         
 //        NSArray *values = @[[NSValue valueWithRect:CGRectMake(0, 0, 0, 0)]];
         
-        void (^printHello)(void) = ^{
-            NSLog(@"Hello");
+//        void (^printHello)(void) = ^{
+//            NSLog(@"Hello");
+//        };
+//
+//        printHello();
+//
+//        NSString* (^printHelloTo)(NSString*);
+//
+//        printHelloTo = ^(NSString *name) {
+//            return [NSString stringWithFormat:@"Hello %@!", name];
+//        };
+//
+//
+//        NSLog(@"%@", printHelloTo(@"Pitt"));
+//
+//        typedef NSString* (^MyBlock)(NSString*);
+//
+//        MyBlock helloTo = ^(NSString *name) {
+//            return [NSString stringWithFormat:@"Hello %@!", name];
+//        };
+//
+//        NSLog(@"%@", helloTo(@"Pitt"));
+        
+        NSNumber __block *number = @1;
+        
+        NSString* (^hello)(void) = ^{
+            number = @20;
+            return [NSString stringWithFormat:@"The number is %@", number];
         };
         
-        printHello();
-        
-        NSString* (^printHelloTo)(NSString*);
-        
-        printHelloTo = ^(NSString *name) {
-            return [NSString stringWithFormat:@"Hello %@!", name];
-        };
-        
-        
-        NSLog(@"%@", printHelloTo(@"Pitt"));
-        
-        typedef NSString* (^MyBlock)(NSString*);
-        
-        MyBlock helloTo = ^(NSString *name) {
-            return [NSString stringWithFormat:@"Hello %@!", name];
-        };
-        
-        NSLog(@"%@", helloTo(@"Pitt"));
-        
+        NSLog(@"%@", hello());
     }
     return 0;
 }
