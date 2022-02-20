@@ -104,11 +104,20 @@ int main(int argc, const char * argv[]) {
         
 //        NSArray *values = @[[NSValue valueWithRect:CGRectMake(0, 0, 0, 0)]];
         
-        NSArray *foo = [NSArray new];
-        id bar = foo;
-        NSArray *baz = bar;
+        void (^printHello)(void) = ^{
+            NSLog(@"Hello");
+        };
+        
+        printHello();
+        
+        NSString* (^printHelloTo)(NSString*);
+        
+        printHelloTo = ^(NSString *name) {
+            return [NSString stringWithFormat:@"Hello %@!", name];
+        };
         
         
+        NSLog(@"%@", printHelloTo(@"Pitt"));
     }
     return 0;
 }
