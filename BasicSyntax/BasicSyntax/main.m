@@ -118,6 +118,15 @@ int main(int argc, const char * argv[]) {
         
         
         NSLog(@"%@", printHelloTo(@"Pitt"));
+        
+        typedef NSString* (^MyBlock)(NSString*);
+        
+        MyBlock helloTo = ^(NSString *name) {
+            return [NSString stringWithFormat:@"Hello %@!", name];
+        };
+        
+        NSLog(@"%@", helloTo(@"Pitt"));
+        
     }
     return 0;
 }
