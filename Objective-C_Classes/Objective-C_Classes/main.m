@@ -6,11 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Person.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        Person *person = [Person new];
+        [person printHelloWithFirstName:@"Pitt" AndLastName:@"Rojas"];
+        [person performSelector:@selector(printHelloWithName:) withObject:@"Pitt"];
+        NSLog(@"%@", [person fetchWorldWideGreetingTo:@"Pitt" AndLastName:@"Rojas"]);
+        [person performSelector:@selector(printHelloWithFirstName:AndLastName:) withObject:@"Pitt" withObject:@"Rojas"];
     }
     return 0;
 }
